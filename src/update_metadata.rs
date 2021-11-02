@@ -9,7 +9,7 @@ use crate::data::{NFTData, NewUpdateAuthority};
 use crate::decode::{decode, get_metadata_pda};
 use crate::parse::{convert_local_to_remote_data, parse_keypair};
 
-pub fn update_nft(
+pub fn update_data(
     client: &RpcClient,
     keypair: &String,
     mint_account: &String,
@@ -49,7 +49,7 @@ pub fn update_nft(
     Ok(())
 }
 
-pub fn set_new_uri(
+pub fn update_uri(
     client: &RpcClient,
     keypair: &String,
     mint_account: &String,
@@ -108,7 +108,7 @@ pub fn set_primary_sale_happened(
         update_authority,
         None,
         None,
-        Some(false),
+        Some(true),
     );
     let (recent_blockhash, _) = client.get_recent_blockhash()?;
     let tx = Transaction::new_signed_with_payer(

@@ -4,3 +4,4 @@
 /binaries
 node_modules
 .DS_Store
+.test_files
